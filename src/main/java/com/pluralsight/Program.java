@@ -27,6 +27,7 @@ public class Program {
             System.out.println("3. Search by price range");
             System.out.println("4. Exit");
             System.out.println("5. Add Vehicle");
+            System.out.println(("6. Remove Vehicle"));
             System.out.print("Please enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -91,26 +92,60 @@ public class Program {
 
                     System.out.print("VIN: ");
                     int vin = Integer.parseInt(scanner.nextLine());
+
                     System.out.print("Year: ");
                     int year = Integer.parseInt(scanner.nextLine());
+
                     System.out.print("Make: ");
                     String make = scanner.nextLine();
+
                     System.out.print("Model: ");
                     String model = scanner.nextLine();
+
                     System.out.print("Type: ");
                     String type = scanner.nextLine();
+
                     System.out.print("Color: ");
                     String color = scanner.nextLine();
-                    System.out.print("Odometer: ");
-                    int odometer = Integer.parseInt(scanner.nextLine());
-                    System.out.print("Price: ");
-                    double price = Double.parseDouble(scanner.nextLine());
 
+                    System.out.print("Odometer: ");
+                    String odometerInput = scanner.nextLine()
+                            .replace(",", "")    // removes commas
+                            .trim();             // removes spaces
+                    int odometer = Integer.parseInt(odometerInput);
+
+                    System.out.print("Price: ");
+                    String priceInput = scanner.nextLine()
+                            .replace("$", "")
+                            .replace(",", "")
+                            .trim();
+                    double price = Double.parseDouble(priceInput);
                     Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
                     dealership.addVehicle(newVehicle);
                     DealershipFileManager.saveDealership(dealership);
 
                     System.out.println("Vehicle added successfully!");
+                    break;
+                case 6:
+                    System.out.print("Enter VIN of the vehicle to remove: ");
+                    int removeVin = Integer.parseInt(scanner.nextLine());
+
+                    boolean removed = false;
+
+                    for (Vehicle v : dealership.getAllVehicles()) {
+                        if (v.getVin() == removeVin) {
+                            dealership.getAllVehicles().remove(v);
+                            removed = true;
+                            break;
+                        }
+                    }
+
+                    if (removed) {
+                        DealershipFileManager.saveDealership(dealership);
+                        System.out.println("Vehicle removed successfully!");
+                    } else {
+                        System.out.println(" No vehicle found ");
+                    }
                     break;
             }
         }while  (choice != 4);
