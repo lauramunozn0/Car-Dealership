@@ -9,7 +9,14 @@ public class Program {
     public static void main(String[] args) throws FileNotFoundException {
 
         ArrayList<Vehicle> inventory = new ArrayList<>();
-        Dealership dealership = null;
+        Dealership dealership = DealershipFileManager.getDealership();
+
+        System.out.println("Welcome to " + dealership.getName());
+        System.out.println("Address: " + dealership.getAddress());
+        System.out.println("Phone: " + dealership.getPhone());
+        System.out.println("--------------------------------------");
+
+        dealership.showInventory();
 
         try (BufferedReader reader = new BufferedReader(new FileReader("dealership.csv"))) {
             String line;
