@@ -54,11 +54,18 @@ public class Program {
 
                 case 3:
                     System.out.print("Enter minimum price: ");
-                    String minInput = scanner.nextLine().replace("$", "").replace(",", "").trim();
-                    double min = scanner.nextDouble();
+                    String minInput = scanner.nextLine()
+                            .replace("$", "")
+                            .replace(",", "")
+                            .trim();
+                    double min = Double.parseDouble(minInput);
+
                     System.out.print("Enter maximum price: ");
-                    String maxInput = scanner.nextLine().replace("$", "").replace(",", "").trim();
-                    double max = scanner.nextDouble();
+                    String maxInput = scanner.nextLine()
+                            .replace("$", "")
+                            .replace(",", "")
+                            .trim();
+                    double max = Double.parseDouble(maxInput);
 
                     boolean foundInRange = false;
                     for (Vehicle v : dealership.getAllVehicles()) {
@@ -68,22 +75,18 @@ public class Program {
                         }
                     }
                     if (!foundInRange) {
-                        System.out.println("No vehicles found in that price range. Sorry!");
+                        System.out.println("No vehicles found in that price range.");
                     }
                     break;
-
-                case 4:
-                    System.out.println("Goodbye!");
+                case 4 :
+                    System.out.println("Goodbye! Thanks for visiting us :) ! " + dealership.getName() + ".");
                     break;
 
                 default:
-                    System.out.println("Invalid choice. Try again.");
+                    System.out.println("Please try again");
             }
-        } while (choice != 4);
+        }while  (choice != 4);
 
         scanner.close();
-
     }
-
-
 }
