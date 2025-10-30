@@ -26,6 +26,7 @@ public class Program {
             System.out.println("2. Search by make or model");
             System.out.println("3. Search by price range");
             System.out.println("4. Exit");
+            System.out.println("5. Add Vehicle");
             System.out.print("Please enter your choice: ");
             choice = scanner.nextInt();
             scanner.nextLine();
@@ -78,12 +79,39 @@ public class Program {
                         System.out.println("No vehicles found in that price range.");
                     }
                     break;
-                case 4 :
+                case 4:
                     System.out.println("Goodbye! Thanks for visiting us :) ! " + dealership.getName() + ".");
                     break;
 
                 default:
                     System.out.println("Please try again");
+
+                case 5:
+                    System.out.println("Enter new vehicle info:");
+
+                    System.out.print("VIN: ");
+                    int vin = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Year: ");
+                    int year = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Make: ");
+                    String make = scanner.nextLine();
+                    System.out.print("Model: ");
+                    String model = scanner.nextLine();
+                    System.out.print("Type: ");
+                    String type = scanner.nextLine();
+                    System.out.print("Color: ");
+                    String color = scanner.nextLine();
+                    System.out.print("Odometer: ");
+                    int odometer = Integer.parseInt(scanner.nextLine());
+                    System.out.print("Price: ");
+                    double price = Double.parseDouble(scanner.nextLine());
+
+                    Vehicle newVehicle = new Vehicle(vin, year, make, model, type, color, odometer, price);
+                    dealership.addVehicle(newVehicle);
+                    DealershipFileManager.saveDealership(dealership);
+
+                    System.out.println("Vehicle added successfully!");
+                    break;
             }
         }while  (choice != 4);
 
