@@ -1,19 +1,9 @@
-# Project Title
 Car-Dealership
-## Description of the Project
 
 This is a mini console-based dealership app for an employee in a car dealership.
-## User Stories
 
 
-List the user stories that guided the development of your application. Format these stories as: "As a [type of user], I want [some goal] so that [some reason]."
-
-- As a user, I want to be able to input my data, so that the application can process it accordingly.
-- As a user, I want to receive immediate feedback, so I can understand what to do next.
-
-
-
-## Technologies Used
+ Technologies Used:
 
 - Java: Mention the version you are using.
 - Any additional libraries or frameworks used in the project.
@@ -21,7 +11,7 @@ List the user stories that guided the development of your application. Format th
 - Code bro and other channels.
 - Private Instructor.
 
-## Demo
+Demo:
 
  Screenshots:
  <img width="853" height="279" alt="Screenshot 2025-10-30 at 4 30 29 AM" src="https://github.com/user-attachments/assets/f4557697-14b5-42f0-9d1f-036d615d5e58" />
@@ -35,4 +25,5 @@ List the user stories that guided the development of your application. Format th
 
 
 Thanks!
+
 
