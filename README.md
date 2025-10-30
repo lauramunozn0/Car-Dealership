@@ -22,8 +22,9 @@ Demo:
 <img width="854" height="431" alt="Screenshot 2025-10-30 at 4 27 04 AM" src="https://github.com/user-attachments/assets/10e0f626-7c9c-421f-b3e2-48dfe1a78496" />
 <img width="620" height="477" alt="Screenshot 2025-10-30 at 4 26 52 AM" src="https://github.com/user-attachments/assets/bb4236b6-42c9-456c-adc6-4da01e3ff516" />
 
-
+Personally, I always get ecxated when is time to write or find a formula for the outputs. like this: System.out.printf(("%-8d | %-6d | %-10s | %-10s | %-10s | %-10s | %,10d | $%,12.2f%n"), or when I find an error. I think is very interesting how over time I automaticly look for whats wrong in the code. :)
 
 Thanks!
+
 
 
