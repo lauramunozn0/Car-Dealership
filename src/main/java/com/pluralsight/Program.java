@@ -9,6 +9,7 @@ public class Program {
     public static void main(String[] args) throws FileNotFoundException {
 
         ArrayList<Vehicle> inventory = new ArrayList<>();
+        Dealership dealership = null;
 
         try (BufferedReader reader = new BufferedReader(new FileReader("dealership.csv"))) {
             String line;
@@ -18,7 +19,11 @@ public class Program {
                 }
                 String[] data = line.split("\\|");
                 if (data.length == 3) {
-                    System.out.println("Skipping delearship info:" + line);
+                    String name = data[0];
+                    String address = data[1];
+                    String phone = data[2];
+                    dealership = new Dealership(name, address, phone);
+                    System.out.println("Dealership : " + name + " | " + address + " | " + phone);
                     continue;
                 }
                 if (data.length == 8) {
@@ -38,11 +43,16 @@ public class Program {
         } catch (IOException e) {
             System.out.println("Error reading file: " + e.getMessage());
         }
-        System.out.println("Inventory loaded from dealership.csv:");
-        for (Vehicle v : inventory) {
-            System.out.println(v);
+        if (dealership != null) {
+            for (Vehicle v : inventory) {
+                dealership.addVehicle(v);
+            }
 
-
+            System.out.println("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Cars Available ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
+            dealership.showInventory();
+        } else {
+            System.out.println("No dealership information found in file.");
         }
+
     }
 }

@@ -56,9 +56,10 @@ public class Vehicle {
 
     @Override
     public String toString() {
-        return String.format("VIN: %d | %d %s %s (%s) - %,d miles - $%,.2f",
+        return String.format("VIN: %d | %d | %-10s | %-10s | %-8s | %,9d miles | $%,10.2f",
                 vin, year, make, model, color, odometer, price);
     }
 }
+
 
 
