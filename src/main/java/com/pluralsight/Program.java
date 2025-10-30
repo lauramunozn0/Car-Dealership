@@ -54,8 +54,10 @@ public class Program {
 
                 case 3:
                     System.out.print("Enter minimum price: ");
+                    String minInput = scanner.nextLine().replace("$", "").replace(",", "").trim();
                     double min = scanner.nextDouble();
                     System.out.print("Enter maximum price: ");
+                    String maxInput = scanner.nextLine().replace("$", "").replace(",", "").trim();
                     double max = scanner.nextDouble();
 
                     boolean foundInRange = false;
